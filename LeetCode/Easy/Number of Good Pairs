@@ -1,0 +1,26 @@
+class Solution {
+public:
+    long long int fact(int n)
+    {
+        if(n<=1)
+        {return 1;}
+        return n*(n-1);
+    }
+    int numIdenticalPairs(vector<int>& nums) {
+        map<int,int> m;
+        for(int i=0;i<nums.size();i++)
+        {
+            m[nums[i]]++;
+        }
+        long long int ans=0;
+        for(auto it:m)
+        {
+            int x=it.second;
+           long long int n=fact(x);
+            long long int temp=n/2;
+          
+            ans+=temp;
+        }
+     return ans;   
+    }
+};
