@@ -1,0 +1,72 @@
+class Solution {
+public:
+    vector<vector<int>> fourSum(vector<int>& nums, int target) {
+      
+        sort(nums.begin(),nums.end());
+        
+        if(nums.size()<4)
+        {  vector<vector<int>> v;
+            return v;
+        }
+        int n=nums.size();
+        vector<vector<int>> ans;
+        
+        for(int L=0;L<n-3;)
+        {
+            for(int R=nums.size()-1;R>=L+3;)
+            {
+                int l=L+1;
+                int r=R-1;
+                
+                while(l<r)
+                {
+                    if((long)nums[L]+nums[R]+nums[l]+nums[r]==target)
+                    {
+                       
+                        ans.push_back(temp);
+                       l++; r--;
+                        
+                        while(l<r and nums[l]==nums[l-1])
+                    {
+                        l++;
+                    }
+                    while(r>l and nums[r]==nums[r+1])
+                    {
+                        r--;
+                    }
+                        
+                    }
+                    else if(((long)nums[L]+nums[R]+nums[l]+nums[r]<target))
+                    {
+                        l++;
+                    }
+                     else if(((long)nums[L]+nums[R]+nums[l]+nums[r]>target))
+                    {
+                        r--;
+                    }
+                    
+                      
+                   
+                    
+                    
+                }
+                R--;
+                while( R>=L+3 and R+1<nums.size() and nums[R]==nums[R+1])
+                    {
+                        R--;
+                    }
+                
+                
+            }
+            L++;
+             while( L<n-3 and L-1>=0 and nums[L]==nums[L-1])
+                    {
+                        L++;
+                    }
+          }
+        
+        
+        return ans;
+        
+    }
+};
